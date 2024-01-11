@@ -1,1 +1,3 @@
 # OPERATIVA-DE-CAJA
+1. EJECUTAR EL SCRIPT QUE CONTIENE LA BASE DE DATOS CON SUS TABLAS RELACIONADAS EN UN SERVIDOR SQL
+2. EN EL ARCHIVO webconfig editar la conexion con las nuevas credenciales de su servidor sql.
