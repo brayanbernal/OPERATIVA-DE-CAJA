@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b120e8447df4606ad6e3d81999a78b0" Name="Diagram1" ZoomLevel="69" ShowGrid="true" DisplayType="false">
+        <EntityTypeShape EntityType="FNSOFTModel.CentrosCostos" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.ClaseComprobante" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Comprobantes" Width="1.5" PointX="12.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Consecutivos" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.FormasPago" Width="1.5" PointX="18.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Movimientos" Width="1.5" PointX="20.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.PlanCuentas" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.SaldosCCs" Width="1.5" PointX="20.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.SaldosCuentas" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.SaldosTerceros" Width="1.5" PointX="22.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.TiposComprobantes" Width="1.5" PointX="21" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Configuracion" Width="1.5" PointX="35.375" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.FichasAhorros" Width="1.5" PointX="10.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Configuracion1" Width="1.5" PointX="27.625" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.DetallesFichas" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.FichasAportes" Width="1.5" PointX="2.625" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.TiposCalculo" Width="1.5" PointX="33" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.TiposFichas" Width="1.5" PointX="5.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.C__MigrationHistory" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Clase_Garantias" Width="1.5" PointX="11.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Codeudores" Width="1.5" PointX="18.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Codigo_Operador" Width="1.5" PointX="13.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.configCajero" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Costos_Adicionales" Width="1.5" PointX="18.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.CostosPrestamos" Width="1.5" PointX="20.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Creditos" Width="1.5" PointX="16" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Cuentas" Width="1.5" PointX="16" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Destinos" Width="1.5" PointX="16" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Forma_Pago" Width="1.5" PointX="18.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Garantias" Width="1.5" PointX="13.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Incrementa" Width="1.5" PointX="16" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Lineas" Width="1.5" PointX="13.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Personal" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Prestamos" Width="1.5" PointX="20.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Real" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.SubDestinos" Width="1.5" PointX="18.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.sysdiagrams" Width="1.5" PointX="22.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Tipo_Costo" Width="1.5" PointX="16" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Tipo_Periodo" Width="1.5" PointX="18.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Configuracion2" Width="1.5" PointX="31.875" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.FichasDescuentos" Width="1.5" PointX="35.125" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.HSaldosCuentas" Width="1.5" PointX="22.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Departamento" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Municipio" Width="1.5" PointX="7.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Pais" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Parameters" Width="1.5" PointX="22.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Administradoras" Width="1.5" PointX="26.125" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Asociados" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Dependencia" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Profesion" Width="1.5" PointX="27.625" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Tercerodep" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.Terceros" Width="1.5" PointX="30" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_ClaseComprobante" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_ClaseComprobante1" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_acc_TiposComprobantes_acc_FormasPago_FormaPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_acc_SaldosCuentas_acc_PlanCuentas_CODIGO" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_PlanCuentas" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_PlanCuentas1" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_PlanCuentas2" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_PlanCuentas3" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_ConfiguracionesAhorros_TiposFichas" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAhorros_ConfiguracionesAhorros" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAhorros_Terceros" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAhorros_TiposCalculoCuota" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAhorros_TiposFichas" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_ConfiguracionAportes_TiposCalculo" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAportes_ConfiguracionAportes" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasAportes_Terceros" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Garantias_dbo_Clase_Garantias_Clase_Garantias_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Prestamos_dbo_Terceros_NIT" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Creditos_dbo_Codigo_Operador_Codigo_Operador_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_Terceros" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_Costos_Adicionales_Cuentas" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_Costos_Adicionales_Destinos" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_Costos_Adicionales_Incrementa" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_Costos_Adicionales_Tipo_Costo" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_CostosPrestamos_dbo_Costos_Adicionales_CA_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Creditos_dbo_Garantias_Garantias_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Creditos_dbo_Lineas_Lineas_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Destinos_dbo_Lineas_Lineas_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_SubDestinos_dbo_Destinos_Destino_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Prestamos_dbo_Forma_Pago_Forma_Pago_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Prestamos_dbo_SubDestinos_Subdestino_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_dbo_Prestamos_dbo_Tipo_Periodo_Tipo_Periodo_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasDescuentos_ConfiguracionDescuentos" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_FichasDescuentos_Terceros" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_geo_Departamento_geo_Pais_Pais_dep" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_geo_Municipio_geo_Departamento_Dep_muni" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_ter_Administradoras_ter_Terceros_NIT" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_ter_Tercerodep_ter_Dependencia_Cod_dependencia" ManuallyRouted="false" />
+        <AssociationConnector Association="FNSOFTModel.FK_ter_Terceros_ter_Profesion_PROFESION" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FNSOFTModel.convenio" Width="1.5" PointX="3" PointY="24" />
+        <AssociationConnector Association="FNSOFTModel.FK_convenio_PlanCuentas" />
+        <EntityTypeShape EntityType="FNSOFTModel.prueba" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.CodigosBanco" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FNSOFTModel.CuadreCajaPorCajero" Width="1.5" PointX="11.25" PointY="11.625" />
+        <AssociationConnector Association="FNSOFTModel.FK_CuadreCajaPorCajero_configCajero" />
+        <EntityTypeShape EntityType="FNSOFTModel.agencias" Width="1.5" PointX="3.75" PointY="5.125" />
+        <EntityTypeShape EntityType="FNSOFTModel.Caja" Width="1.5" PointX="6" PointY="11.125" />
+        <AssociationConnector Association="FNSOFTModel.FK_Caja_PlanCuentas" />
+        <AssociationConnector Association="FNSOFTModel.FK_Caja_agencias" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_Caja" />
+        <AssociationConnector Association="FNSOFTModel.FK_CuadreCajaPorCajero_Caja" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.75" PointY="15.02830078125" />
+          <ConnectorPoint PointX="6.75" PointY="19.109258692774183" />
+          <ConnectorPoint PointX="10.875" PointY="19.109258692774183" />
+          <ConnectorPoint PointX="10.875" PointY="13.480499674479166" />
+          <ConnectorPoint PointX="11.25" PointY="13.480499674479166" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FNSOFTModel.RegistroAbastecimientos" Width="1.5" PointX="11.25" PointY="7.75" />
+        <AssociationConnector Association="FNSOFTModel.FK_RegistroAbastecimientos_PlanCuentas" />
+        <AssociationConnector Association="FNSOFTModel.FK_RegistroAbastecimientos_agencias" />
+        <AssociationConnector Association="FNSOFTModel.FK_RegistroAbastecimientos_Caja1" />
+        <AssociationConnector Association="FNSOFTModel.FK_CuadreCajaPorCajero_Terceros" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_TiposComprobantes" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_TiposComprobantes1" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_CentrosCostos" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_CentrosCostos1" />
+        <AssociationConnector Association="FNSOFTModel.FK_configCajero_TiposComprobantes2" />
+        <EntityTypeShape EntityType="FNSOFTModel.FactOpcaja" Width="1.5" PointX="38.25" PointY="10.125" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_Caja" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco1" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco2" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco3" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco4" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_CodigosBanco5" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_configCajero" />
+        <AssociationConnector Association="FNSOFTModel.FK_FactOpcaja_Terceros" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
