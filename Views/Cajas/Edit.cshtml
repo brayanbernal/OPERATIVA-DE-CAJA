@@ -1,0 +1,123 @@
+﻿@model OperativaCaja.Models.Caja
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+@{
+	ViewBag.Title = "Editar Caja";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+	<div class="form-group">
+		<div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;"><i class="fas fa-edit" aria-hidden="true"></i>&nbsp;&nbsp;Editar Caja</h3></div>
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		@Html.HiddenFor(model => model.Codigo_caja)
+		<div class="row">
+			<div class="form-group col-md-4">
+				<label class="control-label">Agencia:</label>
+				@Html.DropDownList("agencia", null, htmlAttributes: new { @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.agencia, "", new { @class = "text-danger" })
+			</div>
+			<div class="form-group col-md-4">
+				<label class="control-label">Nombre de Caja:</label>
+
+				@Html.EditorFor(model => model.Nombre_caja, new { htmlAttributes = new { @class = "form-control  " } })
+				@Html.ValidationMessageFor(model => model.Nombre_caja, "", new { @class = "text-danger" })
+			</div>
+			<div class="form-group col-md-4">
+				<label class="control-label">Cuenta Abastecimiento:</label>
+				@Html.DropDownList("cta_abastecimiento", null, htmlAttributes: new { @class = "form-control" })
+				@Html.ValidationMessageFor(model => model.cta_abastecimiento, "", new { @class = "text-danger" })
+
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="form-group col-md-4">
+				<label class="control-label">Aumento Tope de Caja:</label>
+				<input type="text" class="form-control  monto" name="aumento" id="aumento" value="0" onchange="calculo();" />
+				<input type="hidden" class="" id="au" value="0" onkeyup="calculo();" />
+			</div>
+			<div class="form-group col-md-4">
+				<label class="control-label">Tope Máximo de Caja Actual</label>
+				@Html.EditorFor(model => model.TopeMaximo_caja, new { htmlAttributes = new { @class = "form-control ", @id = "tope", @Value = Session["tope_caja"], @readonly = "readonly" } })
+				@Html.ValidationMessageFor(model => model.TopeMaximo_caja, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+
+		<label class="control-label" style="color:#274766; padding-left:20px;">Configuracion para facturacion de Caja</label>
+		<div class="form-group col-md-12 contenido">
+			<hr />
+			<div class="form-group col-md-3">
+				<p>Serie:</p>
+				@Html.EditorFor(model => model.Serie, new { htmlAttributes = new { @class = "form-control", @Value = "1", @Readonly = "readonly" } })
+			</div>
+			<div class="form-group col-md-3">
+				<p>Desde:</p>
+				@Html.EditorFor(model => model.Consecutivo_ini, new { htmlAttributes = new { @class = "form-control", @id = "inicial", @onkeyup = "fAgrega();" } })
+				@Html.ValidationMessageFor(model => model.Consecutivo_ini, "", new { @class = "text-danger" })
+			</div>
+			<div class="form-group col-md-3">
+				<p>Hasta:</p>
+				@Html.EditorFor(model => model.consecutivo_fin, new { htmlAttributes = new { @class = "form-control", @id = "final" } })
+				@Html.ValidationMessageFor(model => model.consecutivo_fin, "", new { @class = "text-danger" })
+			</div>
+			<div class="form-group col-md-3">
+				<label class="control-label">Recibo Inicia En:</label>
+				@Html.EditorFor(model => model.consecutivo_actual, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+				@Html.ValidationMessageFor(model => model.consecutivo_actual, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="modal-footer">
+				<a href="~/Cajas/Index" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+				<button type="submit" value="Save" class="btn btn-inline btn-small btn-success">Guardar</button>
+			</div>
+		</div>
+	</div>
+	}
+</div>
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@if (ViewBag.alert !=null)
+	{
+		<script>
+			window.onload = function () {
+				swal('Error', '@ViewBag.alert', 'warning');
+				
+			}
+		</script>
+	}
+}
+<script language="javascript">
+	function fAgrega() {
+		document.getElementById("actual").value = document.getElementById("inicial").value;
+		
+
+	}
+	function calculo() {
+		
+		document.getElementById('tope').value = parseFloat(@Session["tope_caja"]) + parseFloat(document.getElementById("aumento").value)
+	}
+
+</script>

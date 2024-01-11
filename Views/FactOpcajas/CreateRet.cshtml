@@ -1,0 +1,190 @@
+﻿
+@model OperativaCaja.Models.FactOpcaja
+
+@{
+	ViewBag.Title = "Crear Factura";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group col-md-11" style="margin-left:40px">
+			<div class="caja2">
+				<div class="form-group">
+					<div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;">Crear Factura</h3></div>
+				</div>
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Fecha:</label>
+						@Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control", @Value = Session["fechaHora"], @Readonly = "readonly", @Style = "color:red" } })
+						@Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Factura: </label>
+						@Html.EditorFor(model => model.factura, new { htmlAttributes = new { @class = "form-control", @Value = Session["Factura"], @Readonly = "readonly", @Style = "color:red" } })
+						@Html.ValidationMessageFor(model => model.factura, "", new { @class = "text-danger" })
+					</div>
+
+					<div class="form-group col-md-4">
+						<label class="control-label">Operación: </label>
+						@Html.EditorFor(model => model.operacion, new { htmlAttributes = new { @class = "form-control", @Value = Session["op1"], @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.operacion, "", new { @class = "text-danger" })
+
+					</div>
+				</div>
+
+				<div class="row contenido">
+
+					<hr />
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Caja:</label>
+						@Html.EditorFor(model => model.codigo_caja, new { htmlAttributes = new { @class = "form-control", @Value = Session["cod_caja"], @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.codigo_caja, "", new { @class = "text-danger" })
+						<h5 style="color:#274766">@Session["nombre_caja"]</h5>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Nit Cajero:</label>
+						@Html.EditorFor(model => model.nit_cajero, new { htmlAttributes = new { @class = "control-label", @Value = Session["nit"], @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.nit_cajero, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<br />
+						<h5 style="color:#274766">@Session["nombre"]</h5>
+					</div>
+				</div>
+
+
+
+				<div class="row contenido">
+					<hr />
+					<div class="form-group col-md-4">
+						<br />
+						@Html.EditorFor(model => model.nombre_propietario_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["nombre_cuenta"], @Style = "background-color:transparent;border-color:transparent;", @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.nombre_propietario_cuenta, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Nit:</label>
+						@Html.EditorFor(model => model.nit_propietario_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["nit_cuenta"], @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.nit_propietario_cuenta, "", new { @class = "text-danger" })
+
+
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Numero Cuenta:</label>
+						@Html.EditorFor(model => model.numero_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["cuenta"], @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.numero_cuenta, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Efectivo:</label>
+						@Html.EditorFor(model => model.valor_efectivo, new { htmlAttributes = new { @class = "form-control monto ", @Value = "0", @id = "efectivo", @onkeyup = "sumar();" } })
+						@Html.ValidationMessageFor(model => model.valor_efectivo, "", new { @class = "text-danger" })
+
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Saldo Actual Cuenta</label>
+						<input type="text" class="form-control" value='@Session["saldo_cuenta"]' id="saldoact" readonly="readonly" />
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Saldo Total Cuenta</label>
+						@Html.EditorFor(model => model.saldo_total_cuenta, new { htmlAttributes = new { @class = "form-control", @Readonly = "readonly", @Value = Session["saldo_cuenta"], @id = "saldotot", @Type = "number", @onkeyup = "Sumar();" } })
+						@Html.ValidationMessageFor(model => model.saldo_total_cuenta, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="row contenido">
+					<div class="form-group col-md-2">
+
+					</div>
+					<div class="form-group col-md-8">
+						<label class="control-label">Observación:</label>
+						@Html.EditorFor(model => model.observacion, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Opcional" } })
+						@Html.ValidationMessageFor(model => model.observacion, "", new { @class = "text-danger" })
+
+						<label class="control-label">Valor Total:</label>
+						@Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control", @id = "Total", @Value = "0", @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+						@ViewBag.fondo
+					</div>
+				</div>
+		
+				<div class="modal-footer">
+					<a href="~/FactOpcajas//CuentaOperacion" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+					<button type="submit" class="btn btn-inline btn-small btn-success">Guardar</button>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+
+	@if (ViewBag.mensaje != null)
+	{
+		<script>
+			window.onload = function () {
+				swal('Error', '@ViewBag.mensaje', 'warning');
+			}
+		</script>
+	}
+}
+<script language="javascript">
+	/*function Calculo() { }
+
+		var saldoact1 = 0;
+		//document.getElementById("regreso").value = (document.getElementById("recibido").value - document.getElementById("efectivo").value);
+
+	};*/
+	function sumar() {
+
+		var total = 0;
+
+		$(".monto").each(function () {
+
+			if (isNaN(parseFloat($(this).val()))) {
+
+				total += 0;
+
+			} else {
+
+				total += parseFloat($(this).val());
+
+			}
+
+		});
+
+		//alert(total);
+		document.getElementById('Total').value = total;
+
+
+
+		var saldoact1 = 0;
+		//document.getElementById("regreso").value = (document.getElementById("recibido").value - document.getElementById("efectivo").value);
+		saldoact1 = parseFloat(document.getElementById("saldoact").value) - parseFloat(document.getElementById("Total").value);
+		document.getElementById('saldotot').value = saldoact1;
+	}
+
+	 </script>
+

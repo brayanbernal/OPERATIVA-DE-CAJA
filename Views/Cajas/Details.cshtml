@@ -1,0 +1,29 @@
+﻿@model OperativaCaja.Models.Caja
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+@{
+    ViewBag.Title = "Detalles de Caja";
+    Layout = "~/Views/Shared/_Modal.cshtml";
+}
+
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-file-alt"></i>&nbsp;&nbsp;Detalles de Caja</h4></div>
+<hr />
+<h4 class="center">Datos de @Html.DisplayFor(model => model.Nombre_caja)</h4>
+<div class="center contenido">
+    <div class="dl-horizontal">
+        <div class="row">
+            <p class="col-md-6"><b>Código:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Codigo_caja)</p>
+            <p class="col-md-6"><b>Nombre de Caja:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Nombre_caja)</p>
+        </div>
+        <div class="row">
+            <p class="col-md-6"><b>Consecutivo Inicial:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Consecutivo_ini)</p>
+            <p class="col-md-6"><b>Consecutivo Final:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.consecutivo_fin)</p>
+        </div>
+        <div class="row">
+            <p class="col-md-6"><b>Consecutivo Actual:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.consecutivo_actual)</p>
+            <p class="col-md-6"><b>Tope Máximo de Caja:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.TopeMaximo_caja)</p>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+	<a href="~/Cajas/Index" class="btn btn-inline btn-small btn-danger">Cerrar</a>
+</div>

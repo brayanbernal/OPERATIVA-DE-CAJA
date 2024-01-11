@@ -1,0 +1,79 @@
+﻿@model OperativaCaja.Models.CuadreCajaPorCajero
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+@{
+	ViewBag.Title = "Cierre Caja";
+	Layout = "~/Views/Shared/_Modal.cshtml";
+}
+
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;¿cierre Caja?</h4></div>
+<hr />
+<div id="areaImprimir">
+	<h4 class="center">Datos de Caja @Html.DisplayFor(model => model.codigo_caja) - @Html.DisplayFor(model => model.Caja.Nombre_caja) de la fecha @Html.DisplayFor(model => model.fecha)</h4>
+	<h5>Cuenta de Efectivo: &nbsp;&nbsp;@Session["cta_efectivo"]</h5>
+	<h5>Comprobante de Cierre de Caja:&nbsp;&nbsp; @Session["comprobante_cierre"]</h5>
+	<h5>Centro Costo Cierre de Caja:&nbsp;&nbsp; @Session["CentroCostoCaja"]</h5>
+
+	<div class="center caja">
+		<div class="dl-horizontal contenido">
+
+			<div class="row">
+				<p class="col-md-6"><b>Codigo cajero:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.nit_cajero)</p>
+				<p class="col-md-6"><b>nombre cajero:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Terceros.NOMBRE)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>Retiro Efectivo:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.retiros_efectivo)</p>
+				<p class="col-md-6"><b>Retiro en Checque:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.retiros_cheque)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>Consignacion en Efectivo:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.consignacion_efectivo)</p>
+				<p class="col-md-6"><b>Consignacion en Cheque:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.consignacion_cheque)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>Efectivo en Caja:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.tope)</p>
+				@if (Model.cierre == 0)
+				{
+					<p class="col-md-6"><b>Hora Cierre:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Convert.ToString(DateTime.Now)</p>
+				}
+				else
+				{
+					<p class="col-md-6"><b>Hora Cierre:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.horacierre)</p>
+				}
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="modal-footer">
+		<div class="form-actions">
+			<div class="piep">
+				<input type="button" onclick="printDiv('areaImprimir')" value="Imprimir" />
+				<a href="~/CuadreCajaPorCajeroes/Index" class="btn btn-inline btn-small btn-primary">Cancelar</a>
+				<input type="submit" value="Hacer Cierre" class="btn btn-inline btn-small btn-danger" />
+
+			</div>
+		</div>
+	</div>
+}
+
+
+	
+<script>
+		function printDiv(areaImprimir) {
+			var contenido = document.getElementById(areaImprimir).innerHTML;
+			var contenidoOriginal = document.body.innerHTML;
+
+			document.body.innerHTML = contenido;
+
+			window.print();
+
+			document.body.innerHTML = contenidoOriginal;
+		}
+	</script>
+

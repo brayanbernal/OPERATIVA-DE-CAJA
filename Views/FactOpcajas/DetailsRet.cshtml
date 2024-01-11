@@ -1,0 +1,84 @@
+﻿@model OperativaCaja.Models.FactOpcaja
+
+@{
+	ViewBag.Title = "Details";
+}
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-edit"></i>&nbsp;&nbsp;Detalles de Factura</h4></div>
+
+<div class="center contenido" id="areaImprimir">
+	<div class="dl-horizontal">
+		<h2>COOMISOL</h2>
+		<h5>NIT: 900406150-5</h5>
+		<h4 class="center">
+			N° TRN: @Html.DisplayFor(model => model.factura)&nbsp;&nbsp; @Html.DisplayFor(model => model.operacion)
+		</h4>
+		<h4 class="center">
+			Fecha: @Html.DisplayFor(model => model.fecha)
+		</h4>
+
+		@*
+		<div class="row">
+			<p class="col-md-6"><b>Operación:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.operacion)</p>
+		</div>
+		*@
+		<div class="row">
+			<p class="col-md-6"><b>Codigo caja:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.codigo_caja)&nbsp;&nbsp;@Html.DisplayFor(model => model.Caja.Nombre_caja)</p>
+		</div>
+		@*
+		<div class="row">
+			<p class="col-md-6"><b>Nombre caja:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.Caja.Nombre_caja)</p>
+		</div>
+		*@
+		<div class="row">
+			<p class="col-md-6"><b>Nit Cajero:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.nit_cajero)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Documento:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.nit_propietario_cuenta)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>N° Cuenta:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cuenta)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6">&nbsp;&nbsp;@Html.DisplayFor(model => model.nombre_propietario_cuenta)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Valor retiro:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.valor_efectivo)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Saldo de Cuenta:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.saldo_total_cuenta)</p>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="row">
+			<p class="col-md-6">****POR VERIFIQUE QUE LA INFORMACION IMPRESA ES CORRECTA****</p>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="row">
+			<p class="col-md-6">VIGILADO SUPERINTENDENCIA DE ECONOMIA SOLIDARIA</p>
+		</div>
+
+
+
+	</div>
+</div><p>
+	@Html.ActionLink("Regresar", "CuentaOperacion")
+	<input type="button" onclick="printDiv('areaImprimir')" value="Imprimir" />
+</p>
+
+<script>
+	function printDiv(areaImprimir) {
+		var contenido = document.getElementById(areaImprimir).innerHTML;
+		var contenidoOriginal = document.body.innerHTML;
+
+		document.body.innerHTML = contenido;
+
+		window.print();
+
+		document.body.innerHTML = contenidoOriginal;
+	}</script>

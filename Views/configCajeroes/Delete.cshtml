@@ -1,0 +1,55 @@
+﻿@model OperativaCaja.Models.configCajero
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+
+@{
+	ViewBag.Title = "Delete";
+	Layout = "~/Views/Shared/_Modal.cshtml";
+}
+
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;¿Eliminar Caja?</h4></div>
+<hr />
+<h4 class="center">
+	Cajero:&nbsp;@Html.DisplayFor(modelItem => Model.Terceros.NOMBRE1) &nbsp;@Html.DisplayFor(modelItem => Model.Terceros.APELLIDO1)
+</h4>
+<div class="center contenido">
+	<div class="dl-horizontal">
+		<div class="row">
+			<p class="col-md-6"><b>Nit Cajero:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Nit_cajero)</p>
+			<p class="col-md-6"><b>Nombre de Caja:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Caja.Nombre_caja)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Centro costo Transacciones:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.CentrosCostos.Nombre)</p>
+			<p class="col-md-6"><b>Centro costos cierre:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.CentrosCostos1.Nombre)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Comprobante de Ingreso:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes.NOMBRE)</p>
+			<p class="col-md-6"><b>Comprobante de Egreso:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes1.NOMBRE)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Comprobante de Cirre:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes2.NOMBRE)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Contrapartida Banco:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas.NOMBRE)</p>
+			<p class="col-md-6"><b>Contrapartida Otro:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas1.NOMBRE)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Cuenta Efectivo:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas2.NOMBRE)</p>
+			<p class="col-md-6"><b>Cuenta Cheque:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas3.NOMBRE)</p>
+		</div>
+	</div>
+</div>
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="modal-footer">
+		<div class="form-actions">
+			<div class="piep">
+				<a href="~/configCajeroes/Index" class="btn btn-inline btn-small btn-primary">Cancelar</a>
+				<input type="submit" value="Eliminar" class="btn btn-inline btn-small btn-danger" />
+			</div>
+		</div>
+	</div>
+}

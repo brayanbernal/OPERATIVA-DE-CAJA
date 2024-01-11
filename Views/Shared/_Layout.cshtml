@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Description" content="Software Financiero para Medianas y Grandes Empresas">
+    <meta name="keywords" content="Software financiero, contabilidad">
+    <link rel="icon" type="image/ico" href="">
+    <meta name="viewport" content="width=1024,initial-scale=1.00, minimum-scale=1.00">
+    <title>FinanSoft</title>
+
+    <!-- #region Jquery -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.0.min.js"></script>
+
+    <!-- #endregion -->
+    <!-- #region Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- #endregion -->
+    <!-- #region Select2 -->
+    <link href="~/Content/css/select2-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/select2.css" rel="stylesheet" />
+    <script src="~/Scripts/select2.js"></script>
+    <!-- #endregion -->
+
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/compressed2.css" rel="stylesheet" />
+    <link href="~/Content/styleMenu.css" rel="stylesheet" />
+    <link href="~/Content/stylegeneral.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <header>@Html.Partial(@"~/Views/Home/Menu.cshtml", null)</header>
+
+    <!--header-->
+    <div class="container body-content" style="max-width:920px; margin:0px auto">
+        @RenderBody()
+        <hr />
+        <div class="footer">
+            <p style="text-align:center">&copy; @DateTime.Now.Year - Finansoft</p>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<OperativaCaja.Models.convenio>
+
+@{
+    ViewBag.Title = "Convenios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/stylegeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+    <div class="form-group">
+        <div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;">Convenios</h3></div>
+        <div class="col-md-2" style=" margin-top:35px;">
+            <a href="/convenios/Create" class="AddUser btn btn-success btn-small btnnuevo">Nuevo</a>
+        </div>
+    </div>
+
+    <div class="col-md-12 contenido">
+        <div class="form-group">
+            <button class="js-refrescar"><i class="fa fa-refresh" aria-hidden="true"></i> Actualizar</button>
+        </div>
+    </div>
+
+    <div class="modal fade" data-backdrop="static" id="centro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive col-md-12">
+        <div class="col-md-12">
+            <table id="example" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="60">
+                <thead>
+                    <tr>
+                        <th class="columnatablaazul">
+                            Código
+                        </th>
+                        <th class="columnatablaazul2">
+                            @Html.DisplayName("Nombre Convenio")
+                        </th>
+                        <th class="columnatablaazul">
+                            @Html.DisplayName("Cuenta")
+                        </th>
+                        <th class="columnatablaazul2">Opciones</th>
+                    </tr>
+                </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="alinearcentro contenido">
+                                @Html.DisplayFor(modelItem => item.codigo)
+                            </td>
+                            <td class="alinearcentro contenido">
+                                @Html.DisplayFor(modelItem => item.nombre_convenio)
+                            </td>
+                            <td class="alinearcentro contenido">
+                                @Html.DisplayFor(modelItem => item.PlanCuentas.NOMBRE)
+                            </td>
+                            <td class="alinearcentro">
+                                <a id="editar" class="btn btn-inline btn-small btn-primary" href="/convenios/Edit?id=@item.codigo" title="Editar">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                <a class="btn btn-inline btn-small btn-success" href="/convenios/Details?id=@item.codigo" data-toggle="modal" data-target="#centro" title="Detalles">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+            </table>
+            <br /> <br />
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background-color: #DDD;
+    }
+</style>
+<script>
+
+    //refrescar un div
+    $(".js-refrescar").click(function () {
+        $("#mostrar").html("");
+        $("#mostrar").load("/convenios/Index");
+    });
+
+
+    //Al Ocultar el modal
+    $(document.body).on('hidden.bs.modal', function () {
+        $('#centro').removeData('bs.modal');
+        $(".js-refrescar").click();
+    });
+</script>
+

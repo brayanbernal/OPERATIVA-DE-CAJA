@@ -1,0 +1,60 @@
+﻿
+@model OperativaCaja.Models.configCajero
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+	<div class="col-md-12 form-horizontal">
+		<div class="txbox">
+			<h3 class="reg">Iniciar Sesión</h3>
+			<div class="centrar">
+				@using (Html.BeginForm())
+				{
+					@Html.AntiForgeryToken()
+					<div class="form-inline">
+						<div class="form-group">
+							<label id="icon" for="nit"><i class="fa fa-user"></i></label>
+							<input class="inpt" type="text" name="nit" id="nit" placeholder="Nit Cajero" required autocomplete="off"/>
+						</div>
+						<div class="form-group">
+							<label id="icon" for="fecha"><i class="fa fa-calendar"></i></label>
+							<input class="inpt" type="text" name="fecha1" value="@Session["fecha"]" required readonly="readonly"/>
+						</div>
+					</div>
+					<div class="form-group footer">
+						<input type="submit" value="Entrar" class="btn-login" />
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@if (ViewBag.mensaje != null)
+	{
+		<script>
+			window.onload = function () {
+				swal('Error', '@ViewBag.mensaje', 'warning');
+			}
+		</script>
+	}
+}
+

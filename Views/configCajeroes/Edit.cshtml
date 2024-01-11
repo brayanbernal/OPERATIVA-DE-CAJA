@@ -1,0 +1,151 @@
+﻿@model OperativaCaja.Models.configCajero
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group">
+			<div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;"><i class="fas fa-edit" aria-hidden="true"></i>&nbsp;&nbsp;Editar Cajero</h3></div>
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			<div class="row contenido">
+				<div class="form-group col-md-4">
+					<label class="control-label">Código de Caja:</label>
+					@Html.DropDownList("Codigo_caja", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "codigo", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Codigo_caja, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="nombre"></p>
+					@Html.HiddenFor(model => model.Nit_cajero)
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Nit Cajero:</label><br />
+					<h5>@Html.DisplayFor(model => model.Nit_cajero)</h5>
+
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Nombre Cajero:</label><br />
+
+					<h5>@ViewBag.nombre</h5>
+				</div>
+			</div>
+			<div class="row contenido">
+				<div class="form-group col-md-4">
+					<label class="control-label">Comprobante de Ingreso</label>
+					@Html.DropDownList("Compr_ingreso", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "ingreso", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Compr_ingreso, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="ingreso1"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Comprobante de Egreso</label>
+					@Html.DropDownList("Compr_egreso", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "egreso", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Compr_egreso, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="egreso1"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Contrapartida Banco</label>
+					@Html.DropDownList("Contr_banco", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "banco", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Contr_banco, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="banco1"></p>
+
+				</div>
+			</div>
+			<div class="row contenido">
+				<div class="form-group col-md-4">
+					<label class="control-label">Contrapartida Otro</label>
+					@Html.DropDownList("Contr_otro", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "otro", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Contr_otro, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="otro1"></p>
+
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Cuenta Efectivo</label>
+					@Html.DropDownList("Cta_efectivo", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "efectivo", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Cta_efectivo, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="efectivo1"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Cuenta Cheque</label>
+					@Html.DropDownList("Cta_cheque", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "cheque", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Cta_cheque, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="cheque1"></p>
+				</div>
+			</div>
+			<div class="row contenido">
+				<div class="form-group col-md-4">
+					<label class="control-label">Centro de Costo Transacciones</label>
+					@Html.DropDownList("centrocosto", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "centrocosto", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.centrocosto, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="centrocosto1"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Centro de Costo Cierre Caja</label>
+					@Html.DropDownList("CentroCostoCaja", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "centrocaja", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.CentroCostoCaja, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="centrocaja1"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<label class="control-label">Comprobante Cierre Caja</label>
+					@Html.DropDownList("Tipocomprobante_caja", null, "--Seleccione Opción--", htmlAttributes: new { @class = "form-control", @id = "comprobantecaja", @onchange = "fAgrega();" })
+					@Html.ValidationMessageFor(model => model.Tipocomprobante_caja, "", new { @class = "text-danger" })
+					<p></p>
+					<p id="comprobantecaja1"></p>
+				</div>
+
+			</div>
+			<div class="row contenido">
+				<div class="form-group col-md-12 -footer" style="text-align:right;">
+					<a href="~/configCajeroes/Index" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+					<button type="submit" value="Save" class="btn btn-inline btn-small btn-success">Guardar</button>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+<script>
+	function fAgrega() {
+		document.getElementById("nombre").innerHTML = document.getElementById("codigo").value;
+
+		document.getElementById("ingreso1").innerHTML = document.getElementById("ingreso").value;
+
+		document.getElementById("egreso1").innerHTML = document.getElementById("egreso").value;
+
+		document.getElementById("banco1").innerHTML = document.getElementById("banco").value;
+
+		document.getElementById("otro1").innerHTML = document.getElementById("otro").value;
+
+		document.getElementById("efectivo1").innerHTML = document.getElementById("efectivo").value;
+
+		document.getElementById("cheque1").innerHTML = document.getElementById("cheque").value;
+		document.getElementById("centrocosto1").innerHTML = document.getElementById("centrocosto").value;
+		document.getElementById("centrocaja1").innerHTML = document.getElementById("centrocaja").value;
+		document.getElementById("comprobantecaja1").innerHTML = document.getElementById("comprobantecaja").value;
+	}
+</script>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

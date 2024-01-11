@@ -1,0 +1,42 @@
+﻿@{
+        var menu = (string)TempData["menu"];
+}
+
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <div id="headerWrapper">
+            <div id="headerCenter">
+                <div id="headerTitles">
+                    <a href="/Home/">
+                        <img style="margin-top: 17px !important;" src="~/Content/imagenes/logof.png" />
+                    </a>
+                </div>
+                    <nav>
+                        <a id="group0" @if (@menu == "contabilidad") { @Html.Raw(@"class='navActive'") } href="/Home/#&contabilidad">
+                            <i class="fa fa-credit-card-alt fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            Contabilidad
+                        </a>
+                        <a id="group1" @if (@menu == "caja") { @Html.Raw(@"class='navActive'") } href="/Home/#&caja">
+                            <i class="fa fa-calculator fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            <br/> Caja
+                        </a>
+                        <a id="group2" @if (@menu == "movimientos") { @Html.Raw(@"class='navActive'") } href="/Home/#&movimientos">
+                            <i class="fa fa-arrows fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            Movimientos
+                        </a>
+                        <a id="group3" @if (@menu == "modulos") { @Html.Raw(@"class='navActive'") } href="/Home/#&modulos">
+                            <i class="fa fa-table fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            Módulos
+                        </a>
+                        <a id="group4" href="/Home/#&configuracion">
+                            <i class="fa fa-cogs fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            Configuración
+                        </a>
+                        <a id="group5" href="/Home/#&utilidades">
+                            <i class="fa fa-wrench fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                            Utilidades
+                        </a>
+                    </nav>
+        </div>
+    </div>

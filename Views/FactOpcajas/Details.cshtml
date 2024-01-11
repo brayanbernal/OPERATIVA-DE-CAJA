@@ -1,0 +1,195 @@
+﻿@model OperativaCaja.Models.FactOpcaja
+
+@{
+	ViewBag.Title = "Details";
+}
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-edit"></i>&nbsp;&nbsp;Detalles de Factura</h4></div>
+
+<div class="center contenido"  id="areaImprimir">
+	
+	<div style=" position: relative; top: 0px;  left: 100px;  background-color: white;  width: 500px;">
+		<div class="dl-horizontal">
+
+			<h4 class="center">
+				&nbsp;&nbsp;&nbsp;&nbsp;N° TRN: @Html.DisplayFor(model => model.factura)&nbsp;&nbsp; @Html.DisplayFor(model => model.operacion)
+			</h4>
+			<h4 class="center">
+				&nbsp;&nbsp;&nbsp;&nbsp;Fecha: @Html.DisplayFor(model => model.fecha)
+			</h4>
+			<div class="row">
+
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Código caja:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.codigo_caja)&nbsp;&nbsp;@Html.DisplayFor(model => model.Caja.Nombre_caja)</p>
+
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Código Cajero:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.nit_cajero)</p>
+			</div>
+
+			<div class="row">
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Documento Del Asociado:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.nit_propietario_cuenta)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;N° Cuenta:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cuenta)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6">&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.nombre_propietario_cuenta)</p>
+			</div>
+
+
+			<div class="row">
+				<p class="col-md-9"><b>&nbsp;&nbsp;&nbsp;&nbsp;Valor Efectivo Recibido:</b>&nbsp;&nbsp;$ @Html.DisplayFor(model => model.valor_recibido)<b><br />&nbsp;&nbsp;&nbsp;&nbsp;Valor Efectivo Consignar:</b>&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_efectivo)<b>&nbsp;&nbsp;&nbsp;&nbsp;Cambio:</b>&nbsp;&nbsp;$@Html.DisplayFor(model => model.vueltas)</p>
+			</div>
+
+			
+			<div class="row">
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Cheques:</b>&nbsp;&nbsp;$@Html.DisplayFor(model => model.total_cheques)</p>
+			</div>
+			<div class="row">
+				<table class="col-md-6" style=" position: relative; top: 0px;  left: 30px;  background-color: white;  width: 350px;" border="1">
+
+					<tr >
+						<td><b>Código</b></td>
+						<td><b>N° cheque</b></td>
+						<td><b>Valor Discriminado</b></td>
+					</tr>
+					@if (Model.valor_cheque != 0)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(model => model.nit_consignacion)
+
+							</td>
+							<td>
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque)
+
+							</td>
+							<td>
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque)
+							</td>
+						</tr>
+					}
+					@if (Model.valor_cheque1 != 0)
+					{
+						<tr>
+							<td>
+
+								@Html.DisplayFor(model => model.nit_consignacion1)
+							</td>
+							<td>
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque1)
+							</td>
+							<td>
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque1)
+							</td>
+						</tr>
+					}
+					@if (Model.valor_cheque2 != 0)
+					{
+						<tr>
+							<td>
+
+								@Html.DisplayFor(model => model.nit_consignacion2)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque2)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque2)
+							</td>
+						</tr>
+					}
+					@if (Model.valor_cheque3 != 0)
+					{
+						<tr>
+							<td>
+
+								@Html.DisplayFor(model => model.nit_consignacion3)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque3)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque3)
+							</td>
+						</tr>
+					}
+					@if (Model.valor_cheque4 != 0)
+					{
+
+						<tr>
+							<td>
+
+								@Html.DisplayFor(model => model.nit_consignacion4)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque4)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque4)
+							</td>
+						</tr>
+					}
+					@if (Model.valor_cheque5 != 0)
+					{
+						<tr>
+							<td>
+
+								@Html.DisplayFor(model => model.nit_consignacion5)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.numero_cheque5)
+							</td>
+							<td>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;$@Html.DisplayFor(model => model.valor_cheque5)
+							</td>
+						</tr>
+					}
+
+					</table>
+			</div>
+
+			<div class="row">
+				<br />
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Valor Total Consignado</b>&nbsp;&nbsp;$@Html.DisplayFor(model => model.total)</p>
+			</div>
+			<div class="row">
+				<p class="col-md-6"><b>&nbsp;&nbsp;&nbsp;&nbsp;Saldo en Cuenta:</b>&nbsp;&nbsp;$@Html.DisplayFor(model => model.saldo_total_cuenta)</p>
+			</div>		
+			<div class="row">
+				<p class="col-md-6">&nbsp;&nbsp;&nbsp;&nbsp;****POR VERIFIQUE QUE LA INFORMACION IMPRESA ES CORRECTA****</p>
+			</div>
+					
+			<div class="row">
+				<p class="col-md-6">&nbsp;&nbsp;&nbsp;&nbsp;VIGILADO SUPERINTENDENCIA DE ECONOMIA SOLIDARIA</p>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<p>
+
+	@Html.ActionLink("Regresar", "CuentaOperacion")&nbsp;&nbsp;&nbsp;
+	<input type="button" onclick="printDiv('areaImprimir')" value="Imprimir" />
+</p>
+
+<script>
+	function printDiv(areaImprimir) {
+		var contenido = document.getElementById(areaImprimir).innerHTML;
+		var contenidoOriginal = document.body.innerHTML;
+
+		document.body.innerHTML = contenido;
+
+		window.print();
+
+		document.body.innerHTML = contenidoOriginal;
+	}
+</script>

@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Description" content="Software financiero para medianas y grandes empresas">
+    <meta name="keywords" content="Software financiero, contabilidad">
+    <link rel="icon" type="image/ico" href="">
+    <meta name="viewport" content="width=1024,initial-scale=1.00, minimum-scale=1.00">
+    <title>FinanSoft</title>
+
+
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/compressed.css" rel="stylesheet" />
+    <link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" defer="" src="~/Content/js/compressed.js"></script>
+    <script src="~/Content/js/plugins.js"></script>
+
+    <script>
+        scale = 145;
+        spacing = 10;
+        theme = 'theme_default';
+        $group.titles = ["Contabilidad", "Caja", "Movimientos", "Modulos", "Configuracion", "Utilidades"];
+        $group.spacingFull = [5, 5, 5, 5, 5, 5];
+        $group.inactive.opacity = "1";
+        $group.inactive.clickable = "1";
+        $group.showEffect = 0;
+        $group.direction = "horizontal";
+        mouseScroll = "1";
+        siteTitle = 'FinanSoft';
+        siteTitleHome = 'Home';
+        showSpeed = 250;
+        hideSpeed = 200;
+        scrollSpeed = 550;
+        device = "desktop";
+        scrollHeader = "1";
+        disableGroupScrollingWhenVerticalScroll = "";
+
+        /*For background image*/
+        bgMaxScroll = "130";
+        bgScrollSpeed = "450";
+
+        /*For responsive */
+        autoRearrangeTiles = "1";
+        autoResizeTiles = "1";
+        rearrangeTreshhold = 3;
+
+        /*Locale */
+        l_menu = "Menu";
+        panelDim = '0.6'; hidePanelOnClick = '1'; panelGroupScrolling = '';</script>
+
+</head>
+<body class="full desktop">
+    <header style="top: 0px;">
+        <div id="headerWrapper">
+            <div id="headerCenter">
+                <div id="headerTitles">
+                    <a href="/Home/">
+                        <img style="margin-top: 17px !important;" src="~/Content/imagenes/logof.png" />
+                    </a>
+                </div>
+                <nav>
+                    <a id="group0" class="navActive">
+                        <i class="fa fa-credit-card-alt  fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        Contabilidad
+                    </a>
+                    <a id="group1">
+                        <i class="fa fa-calculator fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        <br />Caja
+                    </a>
+                    <a id="group2">
+                        <i class="fa fa-arrows fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        Movimientos
+                    </a>
+                    <a id="group3">
+                        <i class="fa fa-table fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        Módulos
+                    </a>
+                    <a id="group4">
+                        <i class="fa fa-cogs fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        Configuración
+                    </a>
+                    <a id="group5">
+                        <i class="fa fa-wrench fa-2x" aria-hidden="true" style="margin:10px;"></i>
+                        Utilidades
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="wrapper" style="padding-top: 82px;">
+        <div id="centerWrapper">
+            <div id="tileContainer" style="width: 5000.5px; height: 500px; display: block; zoom: 1;" class="">
+
+                <i id="arrowLeft" class="fa fa-arrow-circle-o-left fa-3x navArrows" aria-hidden="true" onclick="javascript:$group.goLeft();" alt="left arrow" style="margin-left: 735px; opacity: 0.5; display: inline; color:#11528f;"></i>
+                <i id="arrowRight" class="fa fa-arrow-circle-o-right fa-3x navArrows" aria-hidden="true" onclick="javascript:$group.goRight();" alt="right arrow" style="margin-left: 1397px; opacity: 0.5; display: inline; color:#11528f;"></i>
+
+                <a id="groupTitle0" class="groupTitle" style="margin-left: 0px; margin-top: 0px; display: block;"><h3>Contabilidad NIIF</h3></a>
+                <a id="groupTitle1" class="groupTitle" style="margin-left: 775px; margin-top: 0px; display: block;"><h3>Caja</h3></a>
+                <a id="groupTitle2" class="groupTitle" style="margin-left: 1550px; margin-top: 0px; display: block;"><h3>Movimientos</h3></a>
+                <a id="groupTitle3" class="groupTitle" style="margin-left: 2325px; margin-top: 0px; display: block;"><h3>Módulos</h3></a>
+                <a id="groupTitle4" class="groupTitle" style="margin-left: 3100px; margin-top: 0px; display: block;"><h3>Configuración</h3></a>
+                <a id="groupTitle5" class="groupTitle" style="margin-left: 3875px; margin-top: 0px; display: block;"><h3>Utilidades</h3></a>
+
+                <!--CONTABILIDAD-->
+                <a href="#" class="tile tileCenteredSlide left group0 " style="margin-top: 45px; margin-left: 0px; width: 300px; height: 145px; display: block; background: rgb(0, 150, 136);" data-pos="45-0-300">
+                    <div class="container1">
+                        <h3>
+
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            Catálogo
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Conozca el catálogo</h5>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlipText vertical group0  support3D" style="margin-top: 45px; margin-left: 310px; width: 300px; height: 145px; display: block;" data-pos="45-310-300">
+                    <div class="flipContainer">
+                        <div class="flipFront" style="background:#00ACC1;">
+                            <h3>
+                                <i class="fa fa-building-o" aria-hidden="true"></i>&nbsp;&nbsp;
+                                Terceros
+                            </h3>
+                        </div>
+                        <div class="flipBack" style="background:#00ACC1;">
+                            <h5>
+
+                                Clientes o Proveedores
+                            </h5>
+                        </div>
+
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileCenteredSlide left group0 " style="margin-top: 200px; margin-left: 0px; width: 300px; height: 145px; display: block; background: rgb(194, 24, 91);" data-pos="355-0-610">
+
+                    <div class="container1">
+                        <h3><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp;&nbsp;Informes	</h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Conozca los informes de Financieros</h5>
+                    </div>
+
+                </a>
+                <!--Fin Contabilidad-->
+                <!--CAJA-->
+                <a href="/Cajas/Index" class="tile tileCenteredSlide left group1 " style="margin-top: 45px; margin-left: 775px; width: 300px; height: 145px; display: block; background: rgb(0, 150, 136);" data-pos="45-0-300">
+                    <div class="container1">
+                        <h3>
+                            <i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;
+                            Cajas
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Crear Caja</h5>
+                    </div>
+                </a>
+
+                <a href="/configCajeroes/Index" class="tile tileFlipText vertical group1  support3D" style="margin-top: 45px; margin-left: 1085px; width: 300px; height: 145px; display: block;" data-pos="45-310-300">
+                    <div class="flipContainer">
+                        <div class="flipFront" style="background:#00ACC1;">
+                            <h3>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp;&nbsp;
+                                Cajeros
+                            </h3>
+                        </div>
+                        <div class="flipBack" style="background:#00ACC1;">
+                            <h5>Configuración de Cajeros</h5>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/CuadreCajaPorCajeroes/Index" class="tile tileCenteredSlide left group1 " style="margin-top: 200px; margin-left: 775px; width: 300px; height: 145px; display: block; background: #892E65;" data-pos="355-0-610">
+
+                    <div class="container1">
+                        <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;Cierre</h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Cierres de Caja</h5>
+                    </div>
+                </a>
+
+                <a href="/FactOpcajas/Logopcaja" class="tile tileCenteredSlide left group1 " style="margin-top: 200px; margin-left: 1085px; width: 300px; height: 145px; display: block; background: rgb(194, 24, 91);" data-pos="355-0-610">
+
+                    <div class="container1">
+                        <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;Factura de Caja</h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Facturas de Operativa de Caja</h5>
+                    </div>
+                </a>
+                <!--Fin Caja-->
+                <!--Movimientos-->
+                <a href="#" class="tile tileCenteredSlide left group2 " style="margin-top: 45px; margin-left: 1550px; width: 500px; height: 145px; display: block; background: #EF6C00;" data-pos="45-775-500">
+
+                    <div class="container1">
+                        <h3><i class="fa fa-plus-circle" aria-hidden="true"></i> Nuevo    </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Cree un nuevo movimiento</h5>
+                    </div>
+                </a>
+                <a href="#" id="tileScroll1_2-1" class="tile tileScroll group1 " style="margin-top: 200px; margin-left: 1550px; width: 300px; height: 145px; display: block; background: #009688;" data-pos="200-300-610">
+                    <div class="tileTitle" style="margin-left:10px;"><span style="font-size:25px;"><i class="fa fa-arrows" aria-hidden="true"></i> VER MOVIMIENTOS</span></div>
+                    <div class="divScroll" style="margin-left: 12px; opacity: 1; margin-top: 0px; font-size:20px;">Comprobantes de egreso</div>
+                    <script>scrollTile("1_2-1", ["Notas de Contabilidad", "Recibos de caja", "Saldos iniciales"], 2000, 0)</script>
+                </a>
+                <!--FIN MOVIMIENTOS-->
+                <!--MODULOS-->
+                <a href="#" class="tile tileFlip horizontal group3 support3D" style="margin-top: 45px; margin-left: 2325px; width: 145px; height: 145px; display: block;" data-pos="45-1550-145">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>APORTES</b></div>
+                        <div class="flipFront" style="background:#4800ff;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-money fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#892E65;"><h5><span style="font-size:22px;">Aportes</span></h5></div>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3 support3D" style="margin-top: 45px; margin-left: 2480px; width: 145px; height: 145px; display: block;" data-pos="200-1705-145">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>AHORROS</b></div>
+                        <div class="flipFront" style="background:#4800ff;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-credit-card fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#509601;"><h5><span style="font-size:22px;">Ahorros</span></h5></div>
+
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 45px; margin-left: 2635px; width: 145px; height: 145px; display: block;" data-pos="200-1860-145">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>CREDITOS</b></div>
+                        <div class="flipFront" style="background:#4800ff;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-users fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                        <div class="flipBack" style="background:#00897B;"><h5><span style="font-size:22px;">Creditos</span></h5></div>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 210px; margin-left: 2325px; width: 145px; height: 145px; display: block;" data-pos="200-1550-145">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>OPERATIVA DE CAJA</b></div>
+                        <div class="flipFront" style="background:#ffd800;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-credit-card-alt fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#EF6C00"><h5><span style="font-size:22px;">Operativa de Caja</span></h5></div>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 210px; margin-left: 2480px; width: 145px; height: 145px; display: block;" data-pos="200-1705-145">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>FABRICA DE CREDITOS</b></div>
+                        <div class="flipFront" style="background:#00ACC1;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-line-chart fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#00B8D4;"><h5><span style="font-size:22px;">Fabrica de Créditos</span></h5></div>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 210px; margin-left: 2635px; width: 146px; height: 145px; display: block;" data-pos="200-1860-146">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>CARTERA</b></div>
+                        <div class="flipFront" style="background:#00ACC1;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-university fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#EF6C00;"><h5><span style="font-size:22px;">Cartera</span></h5></div>
+                    </div>
+                </a>
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 380px; margin-left: 2325px; width: 146px; height: 145px; display: block;" data-pos="200-1860-146">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>DATACREDITO</b></div>
+                        <div class="flipFront" style="background:#892E65;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-database fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#EF6C00"><h5><span style="font-size:22px;">Central de Riesgo DataCrédito</span></h5></div>
+                    </div>
+                </a>
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 380px; margin-left: 2325px; width: 146px; height: 145px; display: block;" data-pos="200-1860-146">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>CIFIN</b></div>
+                        <div class="flipFront" style="background:#ffd800;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-database fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#EF6C00"><h5><span style="font-size:22px;">Central de Riesgo Cifin</span></h5></div>
+                    </div>
+                </a>
+
+                <a href="#" class="tile tileFlip horizontal group3  support3D" style="margin-top: 380px; margin-left: 2480px; width: 146px; height: 145px; display: block;" data-pos="200-1860-146">
+                    <div class="flipContainer">
+                        <div class="text-center" style="color:black;"><b>OTROS DESCUENTOS</b></div>
+                        <div class="flipFront" style="background:#509601;">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-whatsapp fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#EF6C00"><h5><span style="font-size:22px;">Otros Descuentos</span></h5></div>
+                    </div>
+                </a>
+                <!--FIN MODULOS-->
+                <!--CONFIGURACION-->
+                <a href="#" class="tile tileCenteredSlide left group4 " style="margin-top: 45px; margin-left: 3100px; width: 300px; height: 145px; display: block; background: #009688" data-pos="45-2325-300">
+
+                    <div class="container1">
+                        <h3>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                            Auditoria
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Conozca los movimientos del sistema</h5>
+                    </div>
+
+                </a>
+                <a href="#" class="tile tileCenteredSlide left group4 " style="margin-top: 45px; margin-left: 3400px; width: 300px; height: 145px; display: block; background: #C2185B;" data-pos="45-2635-300">
+
+                    <div class="container1">
+                        <h3>
+                            <i class="fa fa-cubes" aria-hidden="true"></i>
+                            Parametros
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Conozca los movimientos del sistema</h5>
+                    </div>
+
+                </a>
+                <a href="#" class="tile tileCenteredSlide left group4 " style="margin-top: 200px; margin-left: 3100px; width: 400px; height: 145px; display: block; background: #892E65;" data-pos="200-2325-400">
+
+                    <div class="container1">
+                        <h3>
+                            <i class="fa fa-user-secret" aria-hidden="true"></i>
+                            Usuarios y permisos
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Acceda a su información</h5>
+                    </div>
+
+                </a>
+                <a href="#" class="tile tileFlip horizontal group4 support3D" style="margin-top: 200px; margin-left: 3510px; width: 200px; height: 145px; display: block;" data-pos="200-2735-200">
+
+                    <div class="flipContainer">
+                        <div class="flipFront" style="background:#9E9E9E">
+                            <div class="flipImgCenterer">
+                                <i class="fa fa-power-off fa-border fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="flipBack" style="background:#9E9E9E"><h5><span style="font-size:22px;">Salir</span></h5></div>
+
+                    </div>
+                </a>
+                <!--FIN CONFIGURACION-->
+                <!--UTILIDADES-->
+                <a href="#" class="tile tileCenteredSlide left group5 " style="margin-top: 45px; margin-left: 3875px; width: 450px; height: 145px; display: block; background: #509601" data-pos="45-3110-450">
+                    <div class="container1">
+                        <h3>
+                            <i class="fa fa-calculator" aria-hidden="true"></i>
+                            Calculadora
+                        </h3>
+                    </div>
+                    <div class="container2">
+                        <h5>Realice sus cálculos con esta útil herramienta</h5>
+                    </div>
+
+                </a>
+                <!--FIN UTILIDADES-->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

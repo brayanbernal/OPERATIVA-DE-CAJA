@@ -1,0 +1,43 @@
+﻿@model OperativaCaja.Models.configCajero
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Modal.cshtml";
+}
+
+<div class="modalheadergeneral" style="margin-top: -6%;"><h4><i class="fas fa-file-alt"></i>&nbsp;&nbsp;Detalles de Cajero</h4></div>
+<hr />
+<h4 class="center">
+    Cajero:&nbsp;@Html.DisplayFor(modelItem => Model.Terceros.NOMBRE1) &nbsp;@Html.DisplayFor(modelItem => Model.Terceros.APELLIDO1)
+</h4>
+<div class="center contenido">
+	<div class="dl-horizontal">
+		<div class="row">
+			<p class="col-md-6"><b>Nit Cajero:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Nit_cajero)</p>
+			<p class="col-md-6"><b>Nombre de Caja:</b>&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Caja.Nombre_caja)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Centro de costo Transacciones:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.CentrosCostos.Nombre)</p>
+			<p class="col-md-6"><b>Centro de costo Cierre:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.CentrosCostos1.Nombre)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Comp. de Ingreso:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes.NOMBRE)</p>
+			<p class="col-md-6"><b>Comp. de Egreso:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes1.NOMBRE)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Comprobante Para Cierre:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.TiposComprobantes2.NOMBRE)</p>
+			
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Contrapartida Banco:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas.NOMBRE)</p>
+			<p class="col-md-6"><b>Contrapartida Otro:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas1.NOMBRE)</p>
+		</div>
+		<div class="row">
+			<p class="col-md-6"><b>Cuenta Efectivo:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas2.NOMBRE)</p>
+			<p class="col-md-6"><b>Cuenta Cheque:</b>&nbsp;&nbsp;@Html.DisplayFor(model => model.PlanCuentas3.NOMBRE)</p>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+    <a href="~/configCajeroes/Index" class="btn btn-inline btn-small btn-danger">Cerrar</a>
+</div>

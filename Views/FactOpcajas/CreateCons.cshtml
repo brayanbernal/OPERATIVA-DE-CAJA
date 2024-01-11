@@ -1,0 +1,461 @@
+﻿<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery.masknumber.js"></script>
+
+@model OperativaCaja.Models.FactOpcaja
+
+@{
+	ViewBag.Title = "Crear Factura";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<link href="~/Content/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+	<div class="modal fade" data-backdrop="static" id="centro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group col-md-11" style="margin-left:40px">
+			<div class="caja2">
+				<div class="form-group">
+					<div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;">Crear Factura</h3></div>
+				</div>
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Fecha:</label>
+						@Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control", @Value = Session["fechaHora"], @Readonly = "readonly", @Style = "color:red", @required="required"} })
+						@Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Factura: </label>
+						@Html.EditorFor(model => model.factura, new { htmlAttributes = new { @class = "form-control", @Value = Session["Factura"], @Readonly = "readonly", @Style = "color:red", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.factura, "", new { @class = "text-danger" })
+					</div>
+
+					<div class="form-group col-md-4">
+						<label class="control-label">Operación: </label>
+						@Html.EditorFor(model => model.operacion, new { htmlAttributes = new { @class = "form-control", @Value = Session["op1"], @Readonly = "readonly", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.operacion, "", new { @class = "text-danger" })
+
+					</div>
+				</div>
+
+				<div class="row contenido">
+
+					<hr />
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Caja:</label>
+						@Html.EditorFor(model => model.codigo_caja, new { htmlAttributes = new { @class = "form-control", @Value = Session["cod_caja"], @Readonly = "readonly", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.codigo_caja, "", new { @class = "text-danger" })
+						<h5 style="color:#274766">@Session["nombre_caja"]</h5>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Nit Cajero:</label>
+						@Html.EditorFor(model => model.nit_cajero, new { htmlAttributes = new { @class = "form-control", @Value = Session["nit"], @Readonly = "readonly", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.nit_cajero, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<br />
+						<h5 style="color:#274766">@Session["nombre"]</h5>
+					</div>
+				</div>
+							   
+				<div class="row contenido">
+					<hr />
+					<div class="form-group col-md-4">
+						<br />
+						@Html.EditorFor(model => model.nombre_propietario_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["nombre_cuenta"], @Style = "background-color:transparent;border-color:transparent;", @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.nombre_propietario_cuenta, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Nit:</label>
+						@Html.EditorFor(model => model.nit_propietario_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["nit_cuenta"], @Readonly = "readonly", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.nit_propietario_cuenta, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Numero Cuenta:</label>
+						@Html.EditorFor(model => model.numero_cuenta, new { htmlAttributes = new { @class = "form-control", @Value = Session["cuenta"], @Readonly = "readonly", @required = "required" } })
+						@Html.ValidationMessageFor(model => model.numero_cuenta, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Recibido:</label>
+						<input type="text" class = "form-control " id = "recibidotxt" name = "recibidotxt" Value = "0"  autocomplete="off"/>
+
+						@Html.HiddenFor(model => model.valor_recibido,new {  @id = "recibido" }  )
+						@Html.ValidationMessageFor(model => model.valor_recibido, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Efectivo a Consignar:</label>
+						<input class = "form-control monto " Value = "0" id = "efectivotxt" name = "efectivotxt" onchange = "sumar();" autocomplete="off" />
+						
+						@Html.HiddenFor(model => model.valor_efectivo, new {  @id = "efectivo"} )
+						@Html.ValidationMessageFor(model => model.valor_efectivo, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Dinero Sobrante:</label>
+						@Html.EditorFor(model => model.vueltas, new { htmlAttributes = new { @class = "form-control ", @id = "regreso", @Value = "0", @Readonly = "readonly" } })
+						@Html.ValidationMessageFor(model => model.vueltas, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo1"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class = "form-control  monto1" id="cheque" name="cheque" Value = "0" onchange = "sumarCheque();" autocomplete = "off"  />
+						@Html.HiddenFor(model => model.valor_cheque, new {@id= "valor_cheque" })
+						@Html.ValidationMessageFor(model => model.valor_cheque, "", new { @class = "text-danger" })
+						@Html.ValidationMessageFor(model => model.valor_cheque, "", new { @class = "text-danger" })
+					</div>
+				</div>
+							   				 
+				<div class="row contenido" id="obj1" style="display:none">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion1", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo2", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion1, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo3"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque1, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque1, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class="form-control  monto1" id="cheque1" name="cheque1" Value="0" onchange="sumarCheque();" autocomplete="off" />
+						@Html.HiddenFor(model => model.valor_cheque1, new { @id = "valor_cheque1" })
+						@Html.ValidationMessageFor(model => model.valor_cheque1, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="row contenido"  id="obj2" style="display:none">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion2", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo4", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion2, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo5"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque2, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque2, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class="form-control  monto1" id="cheque2" name="cheque2" Value="0" onchange="sumarCheque();" autocomplete="off" />
+						@Html.HiddenFor(model => model.valor_cheque2, new { @id = "valor_cheque2" })
+						@Html.ValidationMessageFor(model => model.valor_cheque2, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="row contenido"  id="obj3" style="display:none">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion3", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo6", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion3, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo7"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque3, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque3, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class="form-control  monto1" id="cheque3" name="cheque3" Value="0" onchange="sumarCheque();" autocomplete="off" />
+						@Html.HiddenFor(model => model.valor_cheque3, new { @id = "valor_cheque3" })
+						@Html.ValidationMessageFor(model => model.valor_cheque3, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="row contenido"  id="obj4" style="display:none">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion4", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo8", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion4, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo9"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque4, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque4, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class="form-control  monto1" id="cheque4" name="cheque4" Value="0" onchange="sumarCheque();" autocomplete="off" />
+						@Html.HiddenFor(model => model.valor_cheque4, new { @id = "valor_cheque4" })
+						@Html.ValidationMessageFor(model => model.valor_cheque4, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="row contenido"  id="obj5" style="display:none">
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Consignación:</label>
+						@Html.DropDownList("nit_consignacion5", null, "--Seleccione Banco--", htmlAttributes: new { @class = "form-control", @id = "codigo10", @onchange = "fAgrega();" })
+						@Html.ValidationMessageFor(model => model.nit_consignacion5, "", new { @class = "text-danger" })
+						<p></p>
+						<p id="codigo11"></p>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Cheque:</label>
+						@Html.EditorFor(model => model.numero_cheque5, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+						@Html.ValidationMessageFor(model => model.numero_cheque5, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Valor Cheque:</label>
+						<input type="text" class="form-control  monto1" id="cheque5" name="cheque5" Value="0" onchange="sumarCheque();" autocomplete="off" />
+						@Html.HiddenFor(model => model.valor_cheque5, new { @id = "valor_cheque5" })
+						@Html.ValidationMessageFor(model => model.valor_cheque5, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<input type="button" value="+" onclick="mostrar();"/>
+
+
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Total Cheques:</label>
+						@Html.EditorFor(model => model.total_cheques, new { htmlAttributes = new { @class = "form-control monto", @id = "total_cheques", @Value="0", @onchange = "sumar();", @readonly ="readonly"} })
+						@Html.ValidationMessageFor(model => model.total_cheques, "", new { @class = "text-danger" })
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Saldo Actual Cuenta</label>
+						<input type="text" class="form-control" value='@Session["saldo_cuenta"]' id="saldoact" readonly="readonly" />
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Saldo Total en Cuenta</label>
+						@Html.EditorFor(model => model.saldo_total_cuenta, new { htmlAttributes = new { @class = "form-control", @Readonly = "readonly", @id = "saldotot",@Value="0" , @onchange = "Sumar();" } })
+						@Html.ValidationMessageFor(model => model.saldo_total_cuenta, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="row contenido">
+					<div class="form-group col-md-3">
+
+
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label">Observación:</label>
+						@Html.EditorFor(model => model.observacion, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Opcional" } })
+						@Html.ValidationMessageFor(model => model.observacion, "", new { @class = "text-danger" })
+
+					</div>
+				</div>
+
+				<div class="row contenido">
+					<div class="form-group col-md-2">
+
+					</div>
+					<div class="form-group col-md-8">
+						<label class="control-label">Valor Total:</label>
+						@Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control", @id = "Total", @Readonly = "readonly" ,@Value="0"} })
+						@Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<a href="/FactOpcajas/CuentaOperacion" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+
+					<button type="submit" class="btn btn-inline btn-small btn-success" data-toggle="modal" data-target="#centro">Guardar</button>
+
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+
+}
+<script language="javascript">
+
+	function  sumarCheque() {
+
+		var total = 0;
+
+		$(".monto1").each(function () {
+
+			if (isNaN(parseFloat($(this).val().replace(/,/g, "")))) {
+
+				total += 0;
+
+			} else {
+
+				total += parseFloat($(this).val().replace(/,/g, ""));
+
+			}
+
+		});
+
+		//alert(total);
+		document.getElementById('total_cheques').value = total;
+		
+		document.getElementById("valor_cheque").value = document.getElementById("cheque").value.replace(/,/g, "");
+		document.getElementById("valor_cheque1").value = document.getElementById("cheque1").value.replace(/,/g, "");
+		document.getElementById("valor_cheque2").value = document.getElementById("cheque2").value.replace(/,/g, "");
+		document.getElementById("valor_cheque3").value = document.getElementById("cheque3").value.replace(/,/g, "");
+		document.getElementById("valor_cheque4").value = document.getElementById("cheque4").value.replace(/,/g, "");
+		document.getElementById("valor_cheque5").value = document.getElementById("cheque5").value.replace(/,/g, "");
+		
+	}
+
+
+
+	function sumar() {
+
+		var total = 0;
+
+		$(".monto").each(function () {
+			//alert(parseFloat($(this).val().replace(",", "")));
+			if (isNaN(parseFloat($(this).val().replace(/,/g, "")))) {
+
+				total += 0;
+
+			} else {
+
+				total += parseFloat($(this).val().replace(/,/g, ""));
+
+			}
+
+		});
+		//alert(document.getElementById("recibido").value.replace(/,/g, ""));
+		//alert(total);
+		
+		document.getElementById('Total').value = total;
+		document.getElementById("regreso").value = (document.getElementById("recibidotxt").value.replace(/,/g, "") - document.getElementById("efectivotxt").value.replace(/,/g, ""));
+		//document.getElementById("Consignacion").value = document.getElementById("total").value;
+		document.getElementById("recibido").value = document.getElementById("recibidotxt").value.replace(/,/g, "");
+		document.getElementById("efectivo").value = document.getElementById("efectivotxt").value.replace(/,/g, "");
+
+		var saldoact1 = 0;
+		saldoact1 = parseFloat(document.getElementById("saldoact").value) + parseFloat(document.getElementById("Total").value);
+		document.getElementById('saldotot').value = saldoact1;
+
+
+
+
+		document.getElementById("valor_cheque").value = document.getElementById("cheque").value.replace(/,/g, "");
+		document.getElementById("valor_cheque1").value = document.getElementById("cheque1").value.replace(/,/g, "");
+		document.getElementById("valor_cheque2").value = document.getElementById("cheque2").value.replace(/,/g, "");
+		document.getElementById("valor_cheque3").value = document.getElementById("cheque3").value.replace(/,/g, "");
+		document.getElementById("valor_cheque4").value = document.getElementById("cheque4").value.replace(/,/g, "");
+		document.getElementById("valor_cheque5").value = document.getElementById("cheque5").value.replace(/,/g, "");
+	}
+
+	function fAgrega() {
+		document.getElementById("codigo1").innerHTML = document.getElementById("codigo").value;
+	
+	}
+	
+
+	var cont = 0;
+	function mostrar() {
+		cont = cont + 1;
+		if (cont <= 5) {
+			document.getElementById('obj' + cont).style.display = 'block';
+		} else {
+			window.onload = function () {
+				swal('Error', 'Maximo de consgnaciones por cheque simultaneas alcanzado', 'warning');
+			}
+		}
+	}
+
+</script>
+@if (ViewBag.err != null)
+{
+	<script>
+			window.onload = function () {
+				swal('Error', '@ViewBag.err', 'warning');
+			}
+
+	</script>
+}
+
+
+
+<script>
+
+	//refrescar un div
+	$(".js-refrescar").click(function () {
+		$("#mostrar").html("");
+		$("#mostrar").load("/FactOpcajas/Index");
+	});
+
+
+	//Al Ocultar el modal
+	$(document.body).on('hidden.bs.modal', function () {
+		$('#centro').removeData('bs.modal');
+		$(".js-refrescar").click();
+	});
+
+
+	$(document).ready(function () {
+		/*despues probar*/
+		$('[name=recibidotxt]').maskNumber({ integer: true });
+		$('[name=efectivotxt]').maskNumber({ integer: true });
+		$('[name=cheque]').maskNumber({ integer: true });
+		$('[name=cheque1]').maskNumber({ integer: true });
+		$('[name=cheque2]').maskNumber({ integer: true });
+		$('[name=cheque3]').maskNumber({ integer: true });
+		$('[name=cheque4]').maskNumber({ integer: true });
+		$('[name=cheque5]').maskNumber({ integer: true });
+		
+
+
+	});
+
+</script>
+
+

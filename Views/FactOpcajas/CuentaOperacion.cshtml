@@ -1,0 +1,149 @@
+﻿
+
+@model OperativaCaja.Models.FactOpcaja
+
+@{
+	ViewBag.Title = "Crear Factura";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+<script src="~/Content/js/sweetalert.min.js"></script>
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group col-md-11" style="margin-left:40px">
+			<div class="caja2">
+				<div class="form-group">
+					<div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;">Registro Transacciones</h3></div>
+				</div>
+				@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+				<div class="row contenido">
+					<div class="form-group col-md-4">
+						<label class="control-label">Fecha:</label>
+						<label class="form-control" style="color:red">@Session["fecha"]</label>
+
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">No Factura: </label>
+						<label class="form-control" style="color:red">@Session["Factura"]</label>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Cuenta:</label>
+						<input type="text" class="form-control" name="cuenta" id="cuenta" value=@Session["Seleccionada"] autocomplete="off" required />
+						<p style="color:red">@ViewBag.mensaje</p>
+
+					</div>
+				</div>
+				<div class="row contenido">
+					<hr />
+					<div class="form-group col-md-4">
+						<label class="control-label">Código Caja:</label>
+						<label class="form-control">@Session["cod_caja"]</label>
+						<h5 style="color:#274766">@Session["nombre_caja"]</h5>
+					</div>
+					<div class="form-group col-md-4">
+						<label class="control-label">Nit Cajero:</label>
+						<label class="form-control">@Session["nit"]</label>
+
+					</div>
+					<div class="form-group col-md-4">
+						<br />
+						<h5 style="color:#274766">@Session["nombre"]</h5>
+					</div>
+				</div>
+				<div class="row contenido">
+					<div class="form-group col-md-3">
+						
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label">Operación: </label>
+						<select class="form-control" name="operacion" id="operacion">
+							<option value="Cons">Consignación</option>
+							<option value="Ret">Retiro en Efectivo</option>
+							<option value="Ret_che">Retiro en Cheque</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<div class="form-group col-md-4">
+						<a href="~/FactOpcajas//Index" class="btn btn-inline btn-small btn-primary">Registro de Operaciones</a>
+
+					</div>
+					
+					<div class="form-group col-md-4">
+
+						<a href="~/FactOpcajas//Cuentas" class="btn btn-inline btn-small btn-primary">Consulta cuentas de ahorro</a>
+
+					</div>
+					<div class="form-group col-md-4">
+
+						<a href="~/FactOpcajas//CuentaAportes" class="btn btn-inline btn-small btn-primary">Consulta cuentas de Aportes</a>
+					</div>
+
+
+				</div>
+
+				<div class="modal-footer">
+					<div class="form-group col-md-8">
+
+					</div>
+					<div class="form-group col-md-4">
+
+						<a href="~/FactOpcajas//Logopcaja" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+						<button type="submit" class="btn btn-inline btn-small btn-success">Continuar</button>
+					</div>
+				</div>
+				<h3 style="color:#274766">Cuadre parcial de caja</h3>
+				<hr />
+				<div class="form-group">
+
+					<div class="row contenido">
+						<div class="col-md-4"><label class="control-label">Consignaciones en efectivo</label></div>
+						<div class="col-md-2"><label class="control-label">$ @Session["consignacion_efectivo"] </label></div>
+						<div class="col-md-3"><label class="control-label">Retiros por efectivo</label></div>
+						<div class="col-md-3"><label class="control-label">$ @Session["retiros_efectivo"]</label></div>
+					</div>
+					<div class="row contenido">
+						<div class="col-md-4"><label class="control-label">Consignaciones en Cheque</label></div>
+						<div class="col-md-2"><label class="control-label">$ @Session["consignacion_cheque"]</label></div>
+						<div class="col-md-3"><label class="control-label">Retiros por Cheque</label></div>
+						<div class="col-md-3"><label class="control-label">$ @Session["retiros_cheque"]</label></div>
+					</div>
+					<div class="row contenido">
+						<div class="col-md-4"><label class="control-label">Efectivo en Caja</label></div>
+						<div class="col-md-2"><label class="control-label">$ @Session["tope"] </label></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<style>
+	body {
+		background-color: #DDD;
+	}
+</style>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@if (ViewBag.mensaje != null)
+	{
+		<script>
+			window.onload = function () {
+				swal('Error', '@ViewBag.mensaje', 'warning');
+			}
+		</script>
+	}
+}
+

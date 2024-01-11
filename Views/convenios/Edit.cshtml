@@ -1,0 +1,50 @@
+﻿@model OperativaCaja.Models.convenio
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+@{
+    ViewBag.Title = "Editar Convenios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/styleGeneral.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<script src="~/Scripts/datatable.js"></script>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<div class="col-md-12" style="background: rgb(248, 248, 248)">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-10"><h3 style="border-bottom: 5px solid #2B7785 !important; width: 123%; color: #2B7785 !important; padding: 9px 20px 15px 0px !important;margin-bottom: 31px !important;"><i class="fas fa-edit" aria-hidden="true"></i>&nbsp;&nbsp;Editar Convenio</h3></div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.codigo)
+            <div class="form-group col-md-12 contenido">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nombre Convenio:</label>
+                    @Html.EditorFor(model => model.nombre_convenio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nombre_convenio, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nombre Cuenta:</label>
+                    @Html.DropDownList("cuenta", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.cuenta, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-12 contenido footer" style="text-align:right">
+                <a href="~/convenios/Index" class="btn btn-inline btn-small btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-inline btn-small btn-success">Guardar</button>
+            </div>
+        </div>
+    }
+</div>
+<style>
+    body {
+        background-color: #DDD;
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

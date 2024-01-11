@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var titulo = (string)ViewBag.titulo;
+    var menu = (string)ViewBag.menu;
+
+}
+<a href="../../Dashboard/Default#&contabilidad">
+    <i id="arrowLeft" class="fa fa-arrow-circle-o-left fa-3x navArrows" aria-hidden="true" alt="left arrow" style="margin-left:-44px; margin-top: 29px;
+opacity: 0.5; display: block; color: rgb(17, 82, 143); "></i>
+</a>
+
+<div id="mostrar-wrapper">
+
+
+
+    <div id="mostrar" style="width:100%;  overflow:auto; margin: 0 auto; display:none; padding-bottom:5%; background:#f8f8f8; overflow-x:hidden">
+
+    </div>
+</div>
+
+
+<div style="width:100%;  display:table; overflow:hidden; margin: 0 auto" id="menu">
+    <div style="margin-top: 2.5%;   font-size: 24px;   color: #274766; " class="titulocatalogos col-md-12">
+        Catálogos
+    </div>
+
+    <div class="col-md-6">
+        <a data-url="/Accounting/CentroCosto/index" class="verinfo">
+            <div id="btn1" style="float:left;">
+                <i class="fa fa-money iconosmenu" aria-hidden="true"></i> <p style="margin-top:10px"> Centro de Costos </p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-6">
+        <a data-url="/Accounting/FormasPago/index" class=" verinfo">
+            <div id="btn2" style="float:left">
+                <i class="fa fa-university iconosmenu" aria-hidden="true"></i><p style="margin-top:10px"> Formas de Pago </p>
+            </div>
+        </a>
+    </div><div class="clearfix"></div>
+    <div class="col-md-6">
+        <a data-url="/Accounting/TiposComprobantes/index" class=" verinfo">
+            <div id="btn3" style="float:left">
+                <i class="fa fa-file-text-o iconosmenu" aria-hidden="true"></i><p style="margin-top:10px"> Comprobantes </p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a data-url="/Accounting/PlanDeCuentas/index" class=" verinfo">
+            <div id="btn4" style="float:left">
+                <i class="fa fa-calendar iconosmenu" aria-hidden="true"></i><p style="margin-top:10px"> Plan de Cuentas </p>
+            </div>
+        </a>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+    });
+
+    $(".verinfo").click(function () {
+        var url = $(this).attr("data-url");
+        //  var urlpartial = '@Url.Action("catalogos2", "Default")';
+        //  urlpartial += '?url=' + url + "&menu=" + "@menu";
+        $("#mostrar").html("");
+        $("#mostrar").load(url);
+        $("#menu").hide();
+        $("#mostrar").show();
+
+
+    });
+
+    function refrescar( url) {
+       @*var urlpartial = '@Url.Action("catalogos2", "Default", new { Area = "dashboard"})';
+        urlpartial += '?url=' + "Accounting/CentroCosto/index&menu" + "contabilidad";*@
+
+        var urlpartial = url;
+        $("#mostrar").load(url);
+        $('#centro2').removeData('bs.modal');
+     //   $("#mostrar").load(urlpartial);
+    };
+
+</script>
